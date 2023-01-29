@@ -1,4 +1,4 @@
-﻿function Get-Location($get){
+function Get-Location($get){
 $request
 $ips = @()
 foreach($i in $get){
