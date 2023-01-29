@@ -22,7 +22,7 @@ if($option -eq 1)
      cls
      $get = Get-NetTCPConnection -LocalPort $port
      echo $get
-     Get-Location $get.LocalAddress
+     Get-Location $get.RemoteAddress
      Read-Host
   }
 elseif($option -eq 2)
@@ -32,7 +32,7 @@ elseif($option -eq 2)
      cls
      $get = Get-NetTCPConnection -LocalAddress $Ip
      echo $get
-     Get-Location $get.LocalAddress
+     Get-Location $get.RemoteAddress
      Read-Host
   }
 elseif($option -eq 3)
