@@ -2,11 +2,11 @@ function Get-Location($get){
 $request
 $ips = @()
 foreach($i in $get){
-$i
-$ips += Invoke-RestMethod -Method Get -Uri "http://ip-api.com/json/$i"
+if($i -ne "0.0.0.0"){
+$ips += Invoke-RestMethod -Method Get -Uri "http://ip-api.com/json/$i"}
 }
 echo "`n"
-$ips | Format-Table -Property @{Name="Ip Addres";Expression={$_.query}}, city, country, isp | Out-String|% {Write-Host $_}
+$ips | Format-Table -Property @{Name="Ip Addres";Expression={$_.query}}, city, country, @{Name="Latitude";Expression={$_.lat}},@{Name="Longitude";Expression={$_.lon}}, isp | Out-String|% {Write-Host $_}
 }
 
 while(1){
